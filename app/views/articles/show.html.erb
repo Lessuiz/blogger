@@ -1,6 +1,10 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
 
+<h3>Comentários (<%= @article.comments.size %>)</h3>
+<%= render partial: "articles/comment", collection: @article.comments %>
+<%= render partial: "comments/form" %>
+
 <%= link_to "Deletar", article_path(@article), method: :delete, data: {confirm: "Realmente quer deletar o artigo?"} %>
 
 <%= link_to "Editar", edit_article_path(@article) %>
